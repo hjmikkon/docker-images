@@ -15,6 +15,7 @@ RUN test -d /var/run/lock || mkdir -p /var/run/lock \
        > /etc/sysconfig/shibd \
     && chmod +x /etc/sysconfig/shibd
     
+RUN chown -R shibd:root /var/run/shibboleth
 RUN chmod -R 777 /var/run/shibboleth
 
 COPY httpd-shibd-foreground /usr/local/bin/
