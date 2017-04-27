@@ -19,6 +19,8 @@ RUN chown -R shibd:root /var/run/shibboleth
 RUN chmod -R 777 /var/run/shibboleth
 RUN chmod -R 777 /run/httpd
 
+RUN sed -i 's/Listen 80/Listen 8080/g' /etc/httpd/conf/httpd.conf
+
 COPY httpd-shibd-foreground /usr/local/bin/
 
 EXPOSE 8443 8080
