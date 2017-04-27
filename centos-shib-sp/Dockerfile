@@ -14,9 +14,11 @@ RUN test -d /var/run/lock || mkdir -p /var/run/lock \
     && echo $'export LD_LIBRARY_PATH=/opt/shibboleth/lib64:$LD_LIBRARY_PATH\n'\
        > /etc/sysconfig/shibd \
     && chmod +x /etc/sysconfig/shibd
+    
+RUN chmod -R 777 /var/run/shibboleth
 
 COPY httpd-shibd-foreground /usr/local/bin/
 
-EXPOSE 80 443
+EXPOSE 8443 8080
 
 CMD ["httpd-shibd-foreground"]
