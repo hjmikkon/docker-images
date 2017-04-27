@@ -18,6 +18,7 @@ RUN test -d /var/run/lock || mkdir -p /var/run/lock \
 RUN chown -R shibd:root /var/run/shibboleth
 RUN chmod -R 777 /var/run/shibboleth
 RUN chmod -R 777 /run/httpd
+RUN chmod -R 777 /etc/httpd/logs
 
 RUN sed -i 's/Listen 80/Listen 8080/g' /etc/httpd/conf/httpd.conf
 
